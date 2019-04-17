@@ -7,13 +7,16 @@
               android:orientation="vertical"
               tools:context=".MainActivity">
 
-    <TextView
+
+
+    <ImageView
+            android:contentDescription="Dice"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="30sp"
-            android:text="1"
-            android:id="@+id/result_text"
-            android:layout_gravity="center_horizontal"/>
+            android:layout_gravity="center_horizontal"
+            android:src="@drawable/dice_1"
+            android:id="@+id/dice_image"/>
+
 
     <Button
             android:id="@+id/roll_button"
@@ -21,5 +24,17 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
             android:text="@string/roll" />
+
+    <com.google.android.gms.ads.AdView
+            xmlns:ads="http://schemas.android.com/apk/res-auto"
+            android:id="@+id/adView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center|bottom"
+            ads:adSize="BANNER"
+            ads:adUnitId="ca-app-pub-4597919722020460/8551814538">
+    </com.google.android.gms.ads.AdView>
+
+
 
 </LinearLayout>

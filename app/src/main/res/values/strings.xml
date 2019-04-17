@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">LCRDiceGame</string>
     <string name="roll">Roll</string>
+    <string name="AdMobAppID">ca-app-pub-4597919722020460~8743386229</string>
 </resources>

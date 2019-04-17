@@ -2,24 +2,66 @@ package com.rubenjromo.lcrdicegame
 
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
+import android.widget.Toast
+import com.google.android.gms.ads.*
 import kotlinx.android.synthetic.main.activity_main.*
-import kotlin.random.Random
+import java.util.*
+
 
 class MainActivity : AppCompatActivity() {
+
+    lateinit var mAdView : AdView
+    private lateinit var mInterstitialAd: InterstitialAd
+
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        roll_button.setOnClickListener(
+        MobileAds.initialize(this, getString(R.string.AdMobAppID))
+
+        mAdView = findViewById(R.id.adView)
+        val adRequest = AdRequest.Builder().build()
+        mAdView.loadAd(adRequest)
+
+        mInterstitialAd = InterstitialAd(this)
+        mInterstitialAd.adUnitId = "ca-app-pub-4597919722020460/4887901692"
+        mInterstitialAd.loadAd(AdRequest.Builder().build())
+        mInterstitialAd.adListener = object : AdListener() {
+            override fun onAdClosed() {
+                mInterstitialAd.loadAd(AdRequest.Builder().build())
+            }
+        }
+
+
+
+
+    var numberOfTimesRolled = 0
+
+
+        roll_button.setOnClickListener {
             rollDice()
-        )
+            if (numberOfTimesRolled % 10 == 0 && mInterstitialAd.isLoaded) {
+                mInterstitialAd.show()
+            } else {
+                Toast.makeText(this, "$numberOfTimesRolled.", Toast.LENGTH_SHORT).show()
+            }
+            numberOfTimesRolled ++
+        }
     }
 
     fun rollDice(){
         val randomInt = Random().nextInt(6) + 1
-        result_text.text = "Number: $randomInt !"
+        val drawableResource = when (randomInt){
+            1 -> R.drawable.dice_1
+            2 -> R.drawable.dice_2
+            3 -> R.drawable.dice_3
+            4 -> R.drawable.dice_4
+            5 -> R.drawable.dice_5
+            else -> R.drawable.dice_6
+        }
+        dice_image.setImageResource(drawableResource)
     }
-
 
 }
