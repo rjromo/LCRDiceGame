@@ -5,7 +5,7 @@ import android.support.v7.app.AppCompatActivity
 import android.widget.Toast
 import com.google.android.gms.ads.*
 import kotlinx.android.synthetic.main.activity_main.*
-import java.util.*
+import kotlin.random.Random
 
 
 class MainActivity : AppCompatActivity() {
@@ -26,7 +26,7 @@ class MainActivity : AppCompatActivity() {
         mAdView.loadAd(adRequest)
 
         mInterstitialAd = InterstitialAd(this)
-        mInterstitialAd.adUnitId = "ca-app-pub-4597919722020460/4887901692"
+        mInterstitialAd.adUnitId = getString(R.string.InsterstitialID)
         mInterstitialAd.loadAd(AdRequest.Builder().build())
         mInterstitialAd.adListener = object : AdListener() {
             override fun onAdClosed() {
@@ -52,7 +52,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     fun rollDice(){
-        val randomInt = Random().nextInt(6) + 1
+        val randomInt = Random.nextInt(6) + 1
         val drawableResource = when (randomInt){
             1 -> R.drawable.dice_1
             2 -> R.drawable.dice_2
