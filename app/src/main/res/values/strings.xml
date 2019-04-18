@@ -5,4 +5,8 @@
     <string name="InsterstitialID">ca-app-pub-4597919722020460/4887901692</string>
     <string name="BannerID">ca-app-pub-4597919722020460/8551814538</string>
     <string name="dice">Dice</string>
+    <string name="dices">Number of dices: </string>
+    <string name="diceButton1">1</string>
+    <string name="diceButton2">2</string>
+    <string name="diceButton3">3</string>
 </resources>

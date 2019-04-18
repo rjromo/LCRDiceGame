@@ -6,16 +6,63 @@
               android:layout_gravity="center_vertical"
               tools:context=".MainActivity" android:orientation="vertical">
 
+    <LinearLayout
+            xmlns:android="http://schemas.android.com/apk/res/android"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            >
+
+        <TextView android:layout_width="wrap_content"
+                  android:layout_height="wrap_content"
+                  android:text="@string/dices"
+                  android:textSize="20dp"
+                  android:layout_gravity="top"
+                  android:paddingRight="10dp"/>
+
+     <Button
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:text="@string/diceButton1"
+                android:textColor="@color/cardview_light_background"
+                android:backgroundTint="@color/colorPrimaryDark"
+                android:layout_marginRight="20dp"
+                android:id="@+id/dice_button1"
+        />
+
+     <Button
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:text="@string/diceButton2"
+                android:textColor="@color/cardview_light_background"
+                android:backgroundTint="@color/colorPrimaryDark"
+                android:paddingLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:id="@+id/dice_button2"
+        />
+        <Button
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:text="@string/diceButton3"
+                android:textColor="@color/cardview_light_background"
+                android:backgroundTint="@color/colorPrimaryDark"
+                android:paddingLeft="20dp"
+                android:id="@+id/dice_button3"
+        />
+
+
+    </LinearLayout>
 
     <ImageView
             android:contentDescription="@string/dice"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="227dp"
+            android:layout_height="214dp"
             android:layout_gravity="center_horizontal"
-            tools:src="@drawable/dice_1"
+            tools:src="@drawable/dice_dot"
             android:id="@+id/dice_image"
-    />
+            />
 
+    
 
     <Button
             android:id="@+id/roll_button"
